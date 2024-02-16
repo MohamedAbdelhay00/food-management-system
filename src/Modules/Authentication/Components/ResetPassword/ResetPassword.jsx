@@ -12,7 +12,7 @@ export default function ResetPassword({ saveAdminData }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -152,7 +152,13 @@ export default function ResetPassword({ saveAdminData }) {
               </div>
             </div>
             <div className="mt-4">
-              <button className="btn btn-success w-100">Reset Password</button>
+              <button disabled={isSubmitting} className="btn btn-success w-100">
+              {isSubmitting ? (
+          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        ) : (
+          'Reset Password'
+        )}
+              </button>
             </div>
           </form>
         </div>

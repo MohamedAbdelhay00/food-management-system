@@ -1,0 +1,25 @@
+.wrapper {
+    position:relative;
+  }
+  
+  .icon {
+    position: absolute;
+    box-sizing:border-box;
+    top:50%;
+    left:20px;
+    transform: translateY(-50%);
+  }
+
+.userImg{ 
+    width: 15% !important;
+  }
+
+  .dropdown-toggle{
+    color: #000 !important;
+  }
+  
+  .input {
+    /* height: 50px;
+    box-sizing:border-box;
+    padding-left: 1.5rem; */
+  }

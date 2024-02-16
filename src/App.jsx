@@ -14,6 +14,7 @@ import { jwtDecode } from 'jwt-decode';
 import ProtectedRoute from './Modules/Shared/Components/ProtectedRoute/ProtectedRoute';
 import ResetPassword from './Modules/Authentication/Components/ResetPassword/ResetPassword';
 
+import './App.css'
 function App() {
 
   const [adminData, setAdminData] = useState(null);
@@ -47,8 +48,8 @@ function App() {
       element: <ProtectedRoute adminData={adminData}><MasterLayout adminData={adminData}/></ProtectedRoute>, 
       errorElement: <NotFound />, 
       children: [
-        { index: true, element: <Home /> }, 
-        { path: 'home', element: <Home /> }, 
+        { index: true, element: <Home adminData={adminData}/> }, 
+        { path: 'home', element: <Home adminData={adminData}/> }, 
         { path: 'recipes', element:  <RecipesList />}, 
         { path: 'users', element:  <UsersList />}, 
         { path: 'categories', element:  <CategoriesList />}, 

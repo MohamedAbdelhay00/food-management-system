@@ -1,15 +1,77 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import "./SideBar.css";
+
+import logo from "../../../../imgs/logo.png";
 
 export default function SideBar() {
+  const [isCollapsed, setCollaps] = useState(false);
+  const toggleCollapse = () => {
+    setCollaps(!isCollapsed);
+  };
   let navg = useNavigate();
   let logout = () => {
     localStorage.removeItem("adminToken");
-    navg('/login')
-  }
+    navg("/login");
+  };
   return (
     <div>
-      <button className='btn btn-danger' onClick={logout}>Logout</button>
+      <div className="sidebar-container">
+        <Sidebar collapsed={isCollapsed}>
+          <Menu>
+            <div className="d-flex justify-content-center pt-5 px-3"
+              onClick={toggleCollapse}
+            >
+              <img src={logo} className="colImg" alt="logo" />
+            </div>
+            <MenuItem
+              icon={<i className="fa-solid fa-house"></i>}
+              component={<Link to="/dashboard" />}
+            >
+              Home
+            </MenuItem>
+            <MenuItem
+              icon={<i className="fa-solid fa-users"></i>}
+              component={<Link to="/dashboard/users" />}
+            >
+              {" "}
+              Users
+            </MenuItem>
+            <MenuItem
+              icon={<i className="fa-solid fa-utensils"></i>}
+              component={<Link to="/dashboard/recipes" />}
+            >
+              {" "}
+              Recipes
+            </MenuItem>
+            <MenuItem
+              icon={<i className="fa-solid fa-table-list"></i>}
+              component={<Link to="/dashboard/categories" />}
+            >
+              {" "}
+              Categories
+            </MenuItem>
+            <MenuItem
+              icon={<i className="fa-solid fa-lock-open"></i>}
+              component={<Link to="/dashboard/recipes" />}
+            >
+              {" "}
+              Change Password
+            </MenuItem>
+            <MenuItem
+              icon={<i className="fa-solid fa-right-from-bracket"></i>}
+              className=""
+              onClick={logout}
+            >
+              {" "}
+              Logout
+            </MenuItem>
+          </Menu>
+        </Sidebar>
+      </div>
+      {/* <button className='btn btn-danger' onClick={logout}>Logout</button> */}
     </div>
-  )
+  );
 }

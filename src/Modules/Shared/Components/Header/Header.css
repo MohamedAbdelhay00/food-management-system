@@ -1,0 +1,10 @@
+.Header{
+    background-color: #009247;
+    color: #fff;
+    height: 40%;
+}
+
+.header-info span{
+    color: #eef !important;
+    font-weight: 100;
+}

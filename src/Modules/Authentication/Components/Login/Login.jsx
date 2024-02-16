@@ -13,7 +13,7 @@ export default function Login({ saveAdminData }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -107,7 +107,13 @@ export default function Login({ saveAdminData }) {
               <Link to='/forgot-password' className="text-success">forgot password?</Link>
             </div>
             <div className="mt-4">
-              <button className="btn btn-success w-100">Login</button>
+              <button disabled={isSubmitting} className="btn btn-success w-100">
+              {isSubmitting ? (
+          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        ) : (
+          'Login'
+        )}
+              </button>
             </div>
           </form>
         </div>
