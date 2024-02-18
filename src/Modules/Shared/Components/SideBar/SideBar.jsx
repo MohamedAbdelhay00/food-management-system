@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import Modal from "react-bootstrap/Modal";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import "./SideBar.css";
 
 import logo from "../../../../imgs/logo.png";
+import ChangePassword from "../../../Authentication/Components/ChangePassword/ChangePassword";
+import { ToastContainer } from "react-toastify";
 
 export default function SideBar() {
+  let token = localStorage.getItem("adminToken");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [isCollapsed, setCollaps] = useState(false);
   const toggleCollapse = () => {
     setCollaps(!isCollapsed);
@@ -19,6 +28,12 @@ export default function SideBar() {
   return (
     <div>
       <div className="sidebar-container">
+      <ToastContainer></ToastContainer>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Body>
+          <ChangePassword handleClose={handleClose}/>
+        </Modal.Body>
+      </Modal>
         <Sidebar collapsed={isCollapsed}>
           <Menu>
             <div className="d-flex justify-content-center pt-5 px-3"
@@ -55,7 +70,8 @@ export default function SideBar() {
             </MenuItem>
             <MenuItem
               icon={<i className="fa-solid fa-lock-open"></i>}
-              component={<Link to="/dashboard/recipes" />}
+              onClick={handleShow}
+              
             >
               {" "}
               Change Password

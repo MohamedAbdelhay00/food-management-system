@@ -18,8 +18,8 @@ export default function Header({ title, subTitle, description }) {
             {description}
           </p>
         </div>
-        <div className="col-md-3 headerImg">
-            <img src={adImg} className="w-100" alt="img"/>
+        <div className="col-md-3 headerImg d-flex justify-content-center">
+            <img src={adImg} className="w-50" alt="img"/>
         </div>
       </div>
     </div>
