@@ -107,14 +107,19 @@ export default function Update() {
     useEffect(() => {
         if (recipeId) {
             setValue("name", recipeId.name);
+            setValue("categoriesId", recipeId.categoriesId);
+            setValue("tagsId", recipeId.tagsId);
+            setValue("price", recipeId.price);
+            setValue("recipeImage", recipeId.recipeImage);
+            setValue("description", recipeId.description);
         }
     }, [recipeId]);
   
     useEffect(() => {
-      getCategoriesData();
-      getTagsData();
-      getRecipeById();
-    }, [categories]);
+        getCategoriesData();
+        getTagsData();
+        getRecipeById();
+      }, []);
   return (
     <>
     <RecipeHeader />
