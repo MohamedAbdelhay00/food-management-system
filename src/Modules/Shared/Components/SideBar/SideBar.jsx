@@ -26,7 +26,7 @@ export default function SideBar() {
     navg("/login");
   };
   return (
-    <div>
+    <div className="">
       <div className="sidebar-container">
       <ToastContainer></ToastContainer>
       <Modal show={show} onHide={handleClose}>

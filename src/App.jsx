@@ -15,6 +15,9 @@ import ProtectedRoute from './Modules/Shared/Components/ProtectedRoute/Protected
 import ResetPassword from './Modules/Authentication/Components/ResetPassword/ResetPassword';
 
 import './App.css'
+import AddNew from './Modules/Recipes/Components/RecipesList/RecipesData';
+import RecipesData from './Modules/Recipes/Components/RecipesList/RecipesData';
+import Update from './Modules/Recipes/Components/RecipesList/Update';
 function App() {
 
   const [adminData, setAdminData] = useState(null);
@@ -53,6 +56,8 @@ function App() {
         { path: 'recipes', element:  <RecipesList />}, 
         { path: 'users', element:  <UsersList />}, 
         { path: 'categories', element:  <CategoriesList />}, 
+        { path: 'recipes-data', element:  <RecipesData />}, 
+        { path: 'update/:id', element: <Update />},
       ], 
     }
   ])
