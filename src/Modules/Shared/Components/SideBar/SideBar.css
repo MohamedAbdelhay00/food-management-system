@@ -4,7 +4,7 @@
     height: 100vh;
     border-top-right-radius: 58px;
     border: 0;
-    
+    /* position: fixed; */
 }
 
 .sidebar-container .ps-sidebar-container .ps-menu-button:hover{

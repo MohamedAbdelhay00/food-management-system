@@ -4,6 +4,8 @@ import NavBar from '../NavBar/NavBar'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Header from '../Header/Header';
 
+import './MasterLayout.css';
+
 export default function MasterLayout({ adminData }) {
     let navg = useNavigate();
     const logout = () => {
@@ -11,8 +13,8 @@ export default function MasterLayout({ adminData }) {
         navg("/login");
       };
   return (
-        <div className='d-flex'>
-            <div className=''>
+        <div className='d-flex '>
+            <div className='sidebar'>
                 <SideBar logout={logout}/>
             </div>
             <div className='w-100 container'>

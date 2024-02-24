@@ -48,7 +48,7 @@ export default function Update() {
           }
         );
         navg('/dashboard/recipes')
-        toast.success("Recipe added successfully", { position: "top-right" });
+        toast.success("Recipe added successfully", { position: "bottom-left" });
       } catch (err) {
         toast.error(err.response.data.message);
       }
@@ -110,7 +110,7 @@ export default function Update() {
             setValue("categoriesId", recipeId.categoriesId);
             setValue("tagsId", recipeId.tagsId);
             setValue("price", recipeId.price);
-            setValue("recipeImage", recipeId.recipeImage);
+            setValue("recipeImage", `https://upskilling-egypt.com/${recipeId.imagePath}`);
             setValue("description", recipeId.description);
         }
     }, [recipeId]);

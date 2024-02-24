@@ -26,7 +26,7 @@ export default function SideBar() {
     navg("/login");
   };
   return (
-    <div className="">
+    <div className="sideTry">
       <div className="sidebar-container">
       <ToastContainer></ToastContainer>
       <Modal show={show} onHide={handleClose}>
@@ -34,7 +34,7 @@ export default function SideBar() {
           <ChangePassword handleClose={handleClose}/>
         </Modal.Body>
       </Modal>
-        <Sidebar collapsed={isCollapsed}>
+        <Sidebar collapsed={isCollapsed} className=" position-sticky">
           <Menu>
             <div className="d-flex justify-content-center pt-5 px-3"
               onClick={toggleCollapse}
