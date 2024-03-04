@@ -26,7 +26,11 @@ export default function CategoriesList() {
   const handleCloseDelete = () => setShowDelete(false);
   const handleShowDelete = () => setShowDelete(true);
 
+  const [searchByName, setSearchByName] = useState("");
+
   let [id, setId] = useState();
+
+  const [pageSize, setPageSize] = useState([]);
 
   const {
     register,
@@ -37,15 +41,25 @@ export default function CategoriesList() {
 
   let token = localStorage.getItem("adminToken");
 
-  const getCategoriesData = async () => {
+  const getCategoriesData = async (pageNo, pageSize, name) => {
     try {
       let categories = await axios.get(
-        "https://upskilling-egypt.com:443/api/v1/Category/?pageSize=5&pageNumber=1",
+        "https://upskilling-egypt.com:443/api/v1/Category/",
         {
           headers: {
             Authorization: token,
-          },
+          }, 
+          params: {
+            pageSize: pageSize,
+            pageNumber: pageNo,
+            name: name,
+          }
         }
+      );
+      setPageSize(
+        Array(categories.data.totalNumberOfPages)
+          .fill()
+          .map((_, i) => i + 1)
       );
       setCategorites(categories.data.data);
     } catch (error) {
@@ -63,16 +77,22 @@ export default function CategoriesList() {
         });
         handleClose()
         reset()
-          setTimeout(() => {
-            toast.success("category added successfully", {position: "top-right"}), 100
-          })
+        setTimeout(() => {
+          toast.success("category added successfully", {position: "top-right"});
+        }, 100);
     } catch (err) {
       toast.error(err.response.data.message);
     }
   };
+
+  const getNameValue = (e) => {
+    setSearchByName(e.target.value);
+    getCategoriesData(1, 10, e.target.value);
+  };
+
   useEffect(() => {
-    getCategoriesData();
-  }, [categories]);
+    getCategoriesData(1, 5);
+  }, []);
 
   return (
     <>
@@ -96,6 +116,9 @@ export default function CategoriesList() {
               Add New Item
             </button>
           </div>
+        </div>
+        <div className="d-flex justify-content-center">
+          <input type="text" placeholder="Search by name" onChange={getNameValue} className=" form-control w-75 my-3"/>
         </div>
         <div className="table-contaienr">
           {categories.length > 0 ? (
@@ -134,7 +157,31 @@ export default function CategoriesList() {
           )}
         </div>
       </div>
-
+      <nav aria-label="Page navigation example">
+        <ul className="pagination">
+          <li className="page-item">
+            <a className="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {pageSize.map((page) => (
+            <li
+              key={page}
+              className="page-item"
+              onClick={() => {
+                getCategoriesData(page, 1);
+              }}
+            >
+              <a className="page-link">{page}</a>
+            </li>
+          ))}
+          <li className="page-item">
+            <a className="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Category</Modal.Title>

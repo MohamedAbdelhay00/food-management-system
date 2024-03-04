@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.css";
+import "../Login/Login.css";
 import { useForm } from "react-hook-form";
 import logo from "../../../../imgs/4 4.svg";
 import axios from "axios";
@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Login({ saveAdminData }) {
+export default function VerifyAcc({ saveAdminData }) {
   let navg = useNavigate();
   const {
     register,
@@ -19,12 +19,10 @@ export default function Login({ saveAdminData }) {
   const onSubmit = async (data) => {
     try {
       let response = await axios
-        .post("https://upskilling-egypt.com:443/api/v1/Users/Login", data);
-          localStorage.setItem("adminToken", response.data.token);
-          saveAdminData();
-          navg("/dashboard");
+        .put("https://upskilling-egypt.com:443/api/v1/Users/verify", data);
+          navg("/login");
           setTimeout(() => {
-            toast.success("login success", {position: "top-right"}), 100
+            toast.success("Account Verified successfully", {position: "top-right"}), 100
           })
     } catch (err) {
       toast.error(err.response.data.message);
@@ -40,9 +38,9 @@ export default function Login({ saveAdminData }) {
             <img src={logo} alt="logo" className="w-50" />
           </div>
           <div>
-            <h2>Log In</h2>
+            <h2>Verification</h2>
             <p className="text-secondary">
-              Welcome Back! Please enter your details
+              Please enter the Verification code
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -80,38 +78,30 @@ export default function Login({ saveAdminData }) {
                   <i className="fa-solid fa-key"></i>
                 </span>
                 <input
-                  type="password"
+                  type="text"
                   className="form-control"
-                  placeholder="password"
-                  aria-label="password"
+                  placeholder="Veify Code"
+                  aria-label="code"
                   aria-describedby="addon-wrapping"
-                  {...register("password", {
-                    required: "Password is required",
-                    pattern: {
-                      value: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@])(?=.{8,20}$)/,
-                      message: "Password is not valid",
-                    },
+                  {...register("code", {
+                    required: "code is required", 
                   })}
                 />
               </div>
               <div className="w-100">
-                {errors.password && (
+                {errors.code && (
                   <span className="alert alert-danger w-100 d-flex">
-                    {errors.password.message}
+                    {errors.code.message}
                   </span>
                 )}
               </div>
-            </div>
-            <div className="d-flex justify-content-between">
-            <Link to='/register' className="text-success">Register?</Link>
-              <Link to='/forgot-password' className="text-success">forgot password?</Link>
             </div>
             <div className="mt-4">
               <button disabled={isSubmitting} className="btn btn-success w-100">
               {isSubmitting ? (
           <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         ) : (
-          'Login'
+          'verify'
         )}
               </button>
             </div>

@@ -9,7 +9,7 @@ import logo from "../../../../imgs/logo.png";
 import ChangePassword from "../../../Authentication/Components/ChangePassword/ChangePassword";
 import { ToastContainer } from "react-toastify";
 
-export default function SideBar() {
+export default function SideBar({ adminData, toggleSidebar}) {
   let token = localStorage.getItem("adminToken");
   const [show, setShow] = useState(false);
 
@@ -19,6 +19,7 @@ export default function SideBar() {
   const [isCollapsed, setCollaps] = useState(false);
   const toggleCollapse = () => {
     setCollaps(!isCollapsed);
+    toggleSidebar();
   };
   let navg = useNavigate();
   let logout = () => {
@@ -47,13 +48,16 @@ export default function SideBar() {
             >
               Home
             </MenuItem>
-            <MenuItem
+            {
+              adminData?.userGroup==='SuperAdmin'?
+              <MenuItem
               icon={<i className="fa-solid fa-users"></i>}
               component={<Link to="/dashboard/users" />}
             >
               {" "}
               Users
-            </MenuItem>
+            </MenuItem>:''
+            }
             <MenuItem
               icon={<i className="fa-solid fa-utensils"></i>}
               component={<Link to="/dashboard/recipes" />}
@@ -61,13 +65,26 @@ export default function SideBar() {
               {" "}
               Recipes
             </MenuItem>
-            <MenuItem
+            {
+              adminData?.userGroup==='SystemUser'?
+              <MenuItem
+              icon={<i className="fa-solid fa-utensils"></i>}
+              component={<Link to="/dashboard/favorites" />}
+            >
+              {" "}
+              Favorites
+            </MenuItem>:''
+            }
+            {
+              adminData?.userGroup==='SuperAdmin'?
+              <MenuItem
               icon={<i className="fa-solid fa-table-list"></i>}
               component={<Link to="/dashboard/categories" />}
             >
               {" "}
               Categories
-            </MenuItem>
+            </MenuItem>:''
+            }
             <MenuItem
               icon={<i className="fa-solid fa-lock-open"></i>}
               onClick={handleShow}

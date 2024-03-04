@@ -18,6 +18,9 @@ import './App.css'
 import AddNew from './Modules/Recipes/Components/RecipesList/RecipesData';
 import RecipesData from './Modules/Recipes/Components/RecipesList/RecipesData';
 import Update from './Modules/Recipes/Components/RecipesList/Update';
+import Register from './Modules/Authentication/Components/Register/Register';
+import VerifyAcc from './Modules/Authentication/Components/Register/VerifyAcc';
+import Favorites from './Modules/Favorites/Favorites';
 function App() {
 
   const [adminData, setAdminData] = useState(null);
@@ -25,6 +28,7 @@ function App() {
   let saveAdminData = () => {
     let encodedToken = localStorage.getItem("adminToken"); 
     let decodedToken = jwtDecode(encodedToken);
+    localStorage.setItem("loginData", JSON.stringify(decodedToken));
     setAdminData(decodedToken)
   }
 
@@ -42,6 +46,8 @@ function App() {
       children: [
         { index: true, element: <Login saveAdminData={saveAdminData}/> }, 
         { path: 'login', element: <Login saveAdminData={saveAdminData}/> }, 
+        { path: 'register', element: <Register /> }, 
+        { path: 'verify-account', element: <VerifyAcc /> }, 
         { path: 'forgot-password', element: <ForgotPassword /> }, 
         { path: 'reset-password', element: <ResetPassword /> }
       ], 
@@ -57,7 +63,8 @@ function App() {
         { path: 'users', element:  <UsersList />}, 
         { path: 'categories', element:  <CategoriesList />}, 
         { path: 'recipes-data', element:  <RecipesData />}, 
-        { path: 'update/:id', element: <Update />},
+        { path: 'update/:id', element: <Update />}, 
+        { path: 'favorites', element: <Favorites />},
       ], 
     }
   ])
