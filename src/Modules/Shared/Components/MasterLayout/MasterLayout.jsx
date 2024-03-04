@@ -19,7 +19,7 @@ export default function MasterLayout({ adminData }) {
 
   return (
     <div className='d-flex position-relative'>
-      <div className='sidebar position-fixed top-0 bottom-0 left-0' style={{ width: sidebarWidth }}>
+      <div className='sidebar position-fixed top-0 bottom-0 left-0 z-3 ' style={{ width: sidebarWidth }}>
         <SideBar toggleSidebar={toggleSidebar} adminData={adminData} logout={logout}/>
       </div>
       <div className='w-100 container' style={{ marginLeft: sidebarWidth, transition: 'margin-left 0.3s ease' }}>
