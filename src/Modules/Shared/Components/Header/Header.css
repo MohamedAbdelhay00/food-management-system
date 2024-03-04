@@ -1,10 +1,20 @@
 .Header{
     background-color: #009247;
     color: #fff;
-    height: 20%;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .header-info span{
     color: #eef !important;
     font-weight: 100;
+    flex-shrink: 1;
 }
+
+.img-responsive {
+    max-height: 100%;
+    object-fit: contain;
+  }

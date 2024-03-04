@@ -1,3 +1,20 @@
 .img{
     width: 50px;
 }
+
+.flex-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+@media (max-width: 600px) {
+    .table td, .table th {
+      font-size: 0.75rem;
+      padding: 0.25rem;
+    }
+    .img {
+      width: 50px;
+      height: 50px;
+    }
+  }
