@@ -1,0 +1,19 @@
+.bgl1{
+    background-image: url('../../../../imgs/Vector.png');
+    width: 100%;
+    height: 100vh;
+    background-position: right;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.bgl2{
+    background-image: url('../../../../imgs/Group 48101676.png');
+    width: 100%;
+    height: 100vh;
+    background-position: right;
+    background-repeat: no-repeat;
+
+}
