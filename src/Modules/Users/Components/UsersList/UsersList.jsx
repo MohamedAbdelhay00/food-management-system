@@ -143,19 +143,19 @@ export default function UsersList() {
             <thead>
               <tr>
                 <th>#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Image</th>
-                <th scope="col">Phone</th>
+                <th className="col-name" scope="col">Name</th>
+                <th className="col-name" scope="col">Email</th>
+                <th className="col-name" scope="col">Image</th>
+                <th className="col-name" scope="col">Phone</th>
               </tr>
             </thead>
             <tbody>
               {usersList.map((user) => (
                 <tr key={user.id}>
                   <th scope="row">{user.id}</th>
-                  <td>{user.userName}</td>
-                  <td>{user.email}</td>
-                  <td>
+                  <td className="col-name">{user.userName}</td>
+                  <td className="col-name">{user.email}</td>
+                  <td className="col-name">
                     {user.imagePath ? (
                       <img
                         className="img"
@@ -166,7 +166,7 @@ export default function UsersList() {
                       <img className="img" src={userImg} alt="" />
                     )}
                   </td>
-                  <td>{user.phoneNumber}</td>
+                  <td className="col-name">{user.phoneNumber}</td>
                 </tr>
               ))}
             </tbody>

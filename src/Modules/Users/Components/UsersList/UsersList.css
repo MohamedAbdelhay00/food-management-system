@@ -13,6 +13,11 @@
     white-space: nowrap;
   }
 
+  .col-name {
+    max-width: 50px;
+    word-wrap: break-word;
+  }
+
 @media (max-width: 768px) {
 
     .table {
