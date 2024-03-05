@@ -70,7 +70,7 @@ export default function UsersList() {
   };
 
   useEffect(() => {
-    getUsers(pageNumber, 5);
+    getUsers(pageNumber, 10);
   }, []);
 
   return (
@@ -138,7 +138,8 @@ export default function UsersList() {
           </div> */}
         </div>
         <div className=" table-responsive">
-          <table className="table text-center table-responsive">
+        <div className="scrollable-table">
+        <table className="table text-center table-responsive">
             <thead>
               <tr>
                 <th>#</th>
@@ -170,6 +171,7 @@ export default function UsersList() {
               ))}
             </tbody>
           </table>
+        </div>
           <nav aria-label="Page navigation example">
             <ul className="pagination flex-pagination">
               <li className="page-item">
@@ -182,7 +184,7 @@ export default function UsersList() {
                   key={page}
                   className="page-item"
                   onClick={() => {
-                    getUsers(page, 5);
+                    getUsers(page, 10);
                   }}
                 >
                   <a className="page-link">{page}</a>

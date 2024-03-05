@@ -1,11 +1,16 @@
 .img{
-    width: 50px;
+    width: 5%;
 }
 
 .flex-pagination {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .scrollable-table {
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
 @media (max-width: 768px) {
