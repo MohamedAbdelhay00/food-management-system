@@ -16,7 +16,7 @@ export default function SideBar({ adminData, toggleSidebar}) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [isCollapsed, setCollaps] = useState(false);
+  const [isCollapsed, setCollaps] = useState(true);
   const toggleCollapse = () => {
     setCollaps(!isCollapsed);
     toggleSidebar();

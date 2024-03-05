@@ -146,11 +146,11 @@ export default function RecipesList() {
       />
       <div className="container my-2">
         <div className="row justify-content-between align-items-center">
-          <div className="col-md 4">
+          <div className="col-md-3 d-flex flex-column align-items-center">
             <h4>Recipe Table Details</h4>
             <p>You can check all details</p>
           </div>
-          <div className="col-md-4 d-flex justify-content-end ">
+          <div className="col-md-2 d-flex justify-content-center ">
             <button onClick={navigToAddNew} className="btn btn-success px-4">
               Add new item
             </button>
@@ -160,7 +160,7 @@ export default function RecipesList() {
           <div className="col-md-6">
             <input
               type="text"
-              className=" form-control w-100"
+              className=" form-control w-100 mt-2"
               placeholder="search by name"
               onChange={getNameValue}
             />
@@ -265,7 +265,7 @@ export default function RecipesList() {
               key={page}
               className="page-item"
               onClick={() => {
-                getRecipes(page, 1);
+                getRecipes(page, 5);
               }}
             >
               <a className="page-link">{page}</a>

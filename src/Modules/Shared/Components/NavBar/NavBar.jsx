@@ -50,7 +50,9 @@ export default function NavBar({ adminData, logout }) {
                 </div>
               </li>
               <li className="nav-item d-flex align-items-center">
+              <div className="w-100 d-flex justify-content-center">
               <i className="fa-solid fa-bell"></i>
+              </div>
               </li>
             </ul>
           </div>

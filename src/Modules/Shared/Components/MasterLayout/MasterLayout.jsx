@@ -5,7 +5,7 @@ import NavBar from '../NavBar/NavBar';
 
 export default function MasterLayout({ adminData }) {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-  const sidebarWidth = isSidebarCollapsed ? '80px' : '250px'; // Adjust these values to match your actual sidebar width
+  const sidebarWidth = isSidebarCollapsed ? '80px' : '80px'; // Adjust these values to match your actual sidebar width
 
   let navg = useNavigate();
   const logout = () => {

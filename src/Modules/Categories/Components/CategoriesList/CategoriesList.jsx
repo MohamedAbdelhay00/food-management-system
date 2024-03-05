@@ -169,7 +169,7 @@ export default function CategoriesList() {
               key={page}
               className="page-item"
               onClick={() => {
-                getCategoriesData(page, 1);
+                getCategoriesData(page, 5);
               }}
             >
               <a className="page-link">{page}</a>
