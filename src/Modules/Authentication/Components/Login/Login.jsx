@@ -48,12 +48,12 @@ export default function Login({ saveAdminData }) {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="my-3">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                   <i className="fa-regular fa-envelope"></i>
                 </span>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="Enter Your Email"
                   aria-label="email"
                   aria-describedby="addon-wrapping"
@@ -76,12 +76,12 @@ export default function Login({ saveAdminData }) {
             </div>
             <div className="my-3">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                   <i className="fa-solid fa-key"></i>
                 </span>
                 <input
                   type="password"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="password"
                   aria-label="password"
                   aria-describedby="addon-wrapping"

@@ -59,221 +59,251 @@ export default function Register({ saveAdminData }) {
             <h2>Register</h2>
             <p className="text-secondary">Welcome! Please enter your details</p>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="row">
-              <div className="col-md-6">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="addon-wrapping">
-                      <i className="fa-regular fa-user"></i>
-                    </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="User Name"
-                      aria-label="userName"
-                      aria-describedby="addon-wrapping"
-                      {...register("userName", {
-                        required: "userName is required",
-                      })}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.userName && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.userName.message}
+          <div className="form-container">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <span
+                        className="input-group-text input-icon"
+                        id="addon-wrapping"
+                      >
+                        <i className="fa-regular fa-user"></i>
                       </span>
-                    )}
+                      <input
+                        type="text"
+                        className="form-control input-field"
+                        placeholder="User Name"
+                        aria-label="userName"
+                        aria-describedby="addon-wrapping"
+                        {...register("userName", {
+                          required: "userName is required",
+                        })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.userName && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.userName.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <span
+                        className="input-group-text input-icon"
+                        id="addon-wrapping"
+                      >
+                        <i className="fa-regular fa-envelope"></i>
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control input-field"
+                        placeholder="Enter Your E-mail"
+                        aria-label="email"
+                        aria-describedby="addon-wrapping"
+                        {...register("email", {
+                          required: "Email is required",
+                          pattern: {
+                            value: /^\S+@\S+\.\S+$/,
+                            message: "Email not valid",
+                          },
+                        })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.email && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.email.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <span
+                        className="input-group-text input-icon"
+                        id="addon-wrapping"
+                      >
+                        <i className="fa-solid fa-earth-africa"></i>
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control input-field"
+                        placeholder="Country"
+                        aria-label="country"
+                        aria-describedby="addon-wrapping"
+                        {...register("country", {
+                          required: "Country is required",
+                        })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.country && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.country.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <span
+                        className="input-group-text input-icon"
+                        id="addon-wrapping"
+                      >
+                        <i className="fa-solid fa-mobile-screen-button"></i>
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control input-field"
+                        placeholder="Phone Number"
+                        aria-label="phoneNumber"
+                        aria-describedby="addon-wrapping"
+                        {...register("phoneNumber", {
+                          required: "Phone Number is required",
+                          pattern: {
+                            value: /^(010|011|012|015)\d{8}$/,
+                            message: "phone not valid",
+                          },
+                        })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.phoneNumber && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.phoneNumber.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <span
+                        className="input-group-text input-icon"
+                        id="addon-wrapping"
+                      >
+                        <i className="fa-solid fa-key"></i>
+                      </span>
+                      <input
+                        type="password"
+                        className="form-control input-field"
+                        placeholder="Password"
+                        aria-label="password"
+                        aria-describedby="addon-wrapping"
+                        {...register("password", {
+                          required: "Password is required",
+                          pattern: {
+                            value:
+                              /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@])(?=.{8,20}$)/,
+                            message: "Password is not valid",
+                          },
+                        })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.password && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.password.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <span
+                        className="input-group-text input-icon"
+                        id="addon-wrapping"
+                      >
+                        <i className="fa-solid fa-key"></i>
+                      </span>
+                      <input
+                        type="password"
+                        className="form-control input-field"
+                        placeholder="Conmfirm-Password"
+                        aria-label="confirmPassword"
+                        aria-describedby="addon-wrapping"
+                        {...register("confirmPassword", {
+                          required: "confirm-Password is required",
+                          pattern: {
+                            value:
+                              /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@])(?=.{8,20}$)/,
+                            message: "Password is not valid",
+                          },
+                        })}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.confirmPassword && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.confirmPassword.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12">
+                  <div className="my-3">
+                    <div className="input-group flex-nowrap">
+                      <input
+                        type="file"
+                        className="form-control"
+                        placeholder="Profile Image"
+                        aria-label="profileImage"
+                        aria-describedby="addon-wrapping"
+                        {...register("profileImage")}
+                      />
+                    </div>
+                    <div className="w-100">
+                      {errors.profileImage && (
+                        <span className="alert alert-danger w-100 d-flex">
+                          {errors.profileImage.message}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="col-md-6">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="addon-wrapping">
-                      <i className="fa-regular fa-envelope"></i>
-                    </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter Your E-mail"
-                      aria-label="email"
-                      aria-describedby="addon-wrapping"
-                      {...register("email", {
-                        required: "Email is required",
-                        pattern: {
-                          value: /^\S+@\S+\.\S+$/,
-                          message: "Email not valid",
-                        },
-                      })}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.email && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.email.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
+              <div>
+                <p
+                  onClick={() => {
+                    navg("/login");
+                  }}
+                >
+                  have an account?{" "}
+                  <span className=" text-success">Login now!</span>
+                </p>
               </div>
-              <div className="col-md-6">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="addon-wrapping">
-                      <i className="fa-solid fa-earth-africa"></i>
-                    </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Country"
-                      aria-label="country"
-                      aria-describedby="addon-wrapping"
-                      {...register("country", {
-                        required: "Country is required",
-                      })}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.country && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.country.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
+              <div className="mt-4">
+                <button
+                  disabled={isSubmitting}
+                  className="btn btn-success w-100"
+                >
+                  {isSubmitting ? (
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                  ) : (
+                    "Register"
+                  )}
+                </button>
               </div>
-              <div className="col-md-6">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="addon-wrapping">
-                      <i className="fa-solid fa-mobile-screen-button"></i>
-                    </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Phone Number"
-                      aria-label="phoneNumber"
-                      aria-describedby="addon-wrapping"
-                      {...register("phoneNumber", {
-                        required: "Phone Number is required",
-                        pattern: {
-                          value: /^(010|011|012|015)\d{8}$/,
-                          message: "phone not valid",
-                        },
-                      })}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.phoneNumber && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.phoneNumber.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="addon-wrapping">
-                      <i className="fa-solid fa-key"></i>
-                    </span>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Password"
-                      aria-label="password"
-                      aria-describedby="addon-wrapping"
-                      {...register("password", {
-                        required: "Password is required",
-                        pattern: {
-                          value:
-                            /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@])(?=.{8,20}$)/,
-                          message: "Password is not valid",
-                        },
-                      })}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.password && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.password.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="addon-wrapping">
-                      <i className="fa-solid fa-key"></i>
-                    </span>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Conmfirm-Password"
-                      aria-label="confirmPassword"
-                      aria-describedby="addon-wrapping"
-                      {...register("confirmPassword", {
-                        required: "confirm-Password is required",
-                        pattern: {
-                          value:
-                            /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@])(?=.{8,20}$)/,
-                          message: "Password is not valid",
-                        },
-                      })}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.confirmPassword && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.confirmPassword.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12">
-                <div className="my-3">
-                  <div className="input-group flex-nowrap">
-                    <input
-                      type="file"
-                      className="form-control"
-                      placeholder="Profile Image"
-                      aria-label="profileImage"
-                      aria-describedby="addon-wrapping"
-                      {...register("profileImage")}
-                    />
-                  </div>
-                  <div className="w-100">
-                    {errors.profileImage && (
-                      <span className="alert alert-danger w-100 d-flex">
-                        {errors.profileImage.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-                <p onClick={()=>{navg('/login')}}>have an account? <span className=" text-success">Login now!</span></p>
-            </div>
-            <div className="mt-4">
-              <button disabled={isSubmitting} className="btn btn-success w-100">
-                {isSubmitting ? (
-                  <span
-                    className="spinner-border spinner-border-sm"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                ) : (
-                  "Register"
-                )}
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

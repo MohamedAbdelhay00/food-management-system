@@ -6,3 +6,7 @@
     width: 100% !important;
     height: 100vh;
 }
+
+.input-icon, .input-field {
+    height: 40px; /* adjust this value as needed */
+  }

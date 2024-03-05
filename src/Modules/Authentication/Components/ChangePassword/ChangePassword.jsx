@@ -41,12 +41,12 @@ export default function ChangePassword({ handleClose }) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="my-3">
             <div className="input-group flex-nowrap">
-              <span className="input-group-text" id="addon-wrapping">
+              <span className="input-group-text input-icon" id="addon-wrapping">
                 <i className="fa-solid fa-key"></i>
               </span>
               <input
                 type="password"
-                className="form-control"
+                className="form-control input-field"
                 placeholder="Old Password"
                 aria-label="oldPassword"
                 aria-describedby="addon-wrapping"
@@ -69,12 +69,12 @@ export default function ChangePassword({ handleClose }) {
           </div>
           <div className="my-3">
             <div className="input-group flex-nowrap">
-              <span className="input-group-text" id="addon-wrapping">
+              <span className="input-group-text input-icon" id="addon-wrapping">
                 <i className="fa-solid fa-key"></i>
               </span>
               <input
                 type="password"
-                className="form-control"
+                className="form-control input-field"
                 placeholder="New Password"
                 aria-label="newPassword"
                 aria-describedby="addon-wrapping"
@@ -97,12 +97,12 @@ export default function ChangePassword({ handleClose }) {
           </div>
           <div className="my-3">
             <div className="input-group flex-nowrap">
-              <span className="input-group-text" id="addon-wrapping">
+              <span className="input-group-text input-icon" id="addon-wrapping">
                 <i className="fa-solid fa-key"></i>
               </span>
               <input
                 type="password"
-                className="form-control"
+                className="form-control input-field"
                 placeholder="Confirm New Password"
                 aria-label="confirmNewPassword"
                 aria-describedby="addon-wrapping"

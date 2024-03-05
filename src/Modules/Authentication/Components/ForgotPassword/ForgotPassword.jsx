@@ -45,12 +45,12 @@ export default function ForgotPassword({ saveAdminData }) {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="my-3 mb-5">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                   <i className="fa-regular fa-envelope"></i>
                 </span>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="Enter Your Email"
                   aria-label="email"
                   aria-describedby="addon-wrapping"

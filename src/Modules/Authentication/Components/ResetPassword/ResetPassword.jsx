@@ -45,12 +45,12 @@ export default function ResetPassword({ saveAdminData }) {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="my-3">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                   <i className="fa-regular fa-envelope"></i>
                 </span>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="Email"
                   aria-label="email"
                   aria-describedby="addon-wrapping"
@@ -73,12 +73,12 @@ export default function ResetPassword({ saveAdminData }) {
             </div>
             <div className="my-3">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                 <i className="fa-solid fa-lock"></i>
                 </span>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="OTP"
                   aria-label="OTP"
                   aria-describedby="addon-wrapping"
@@ -97,12 +97,12 @@ export default function ResetPassword({ saveAdminData }) {
             </div>
             <div className="my-3">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                 <i className="fa-solid fa-lock"></i>
                 </span>
                 <input
                   type="password"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="password"
                   aria-label="password"
                   aria-describedby="addon-wrapping"
@@ -125,12 +125,12 @@ export default function ResetPassword({ saveAdminData }) {
             </div>
             <div className="my-3">
               <div className="input-group flex-nowrap">
-                <span className="input-group-text" id="addon-wrapping">
+                <span className="input-group-text input-icon" id="addon-wrapping">
                 <i className="fa-solid fa-lock"></i>
                 </span>
                 <input
                   type="password"
-                  className="form-control"
+                  className="form-control input-field"
                   placeholder="confirm new password"
                   aria-label="confirmPassword"
                   aria-describedby="addon-wrapping"
